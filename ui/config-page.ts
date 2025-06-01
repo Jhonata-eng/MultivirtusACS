@@ -206,7 +206,7 @@ function renderTable(confsResponse, searchString): Children {
 export const component: ClosureComponent = (): Component => {
   return {
     view: (vnode) => {
-      document.title = "Config - GenieACS";
+      document.title = "Multivirtus ACS";
 
       const search = m("input", {
         type: "text",

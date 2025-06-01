@@ -131,7 +131,7 @@ export function init(
 export const component: ClosureComponent = (): Component => {
   return {
     view: (vnode) => {
-      document.title = "Provisions - GenieACS";
+      document.title = "Multivirtus ACS";
 
       function showMore(): void {
         vnode.state["showCount"] =

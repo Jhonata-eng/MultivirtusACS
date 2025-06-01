@@ -16,7 +16,7 @@ export const component: ClosureComponent = (): Component => {
     view: (vnode) => {
       if (window.username) m.route.set(vnode.attrs["continue"] || "/");
 
-      document.title = "Login - Multivirtus ACS";
+      document.title = "Multivirtus ACS";
       return [
         m(".login-box", [
             m("h1.login-header", "Bem Vindo!"),
