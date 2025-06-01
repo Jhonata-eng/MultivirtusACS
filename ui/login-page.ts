@@ -19,84 +19,89 @@ export const component: ClosureComponent = (): Component => {
       document.title = "Login - Multivirtus ACS";
       return [
         m(".login-box", [
-            m("h1.login-header", "Entrar"),
+            m("h1.login-header", "Bem Vindo!"),
             m(
                 "form",
-                m(
-                    ".form-group",
-                    [
-                        m("label", { for: "username" }, "Usuário"),
-                        m("input", {
-                            name: "username",
-                            type: "text",
-                            value: vnode.state["username"],
-                            oncreate: (vnode2) => {
-                                (vnode2.dom as HTMLInputElement).focus();
-                            },
-                            oninput: (e) => {
-                                vnode.state["username"] = e.target.value;
-                            },
-                        }),
-                    ]
-                ),
-                m(
-                    ".form-group",
-                    [
-                        m("label", { for: "password" }, "Senha"),
-                        m("input", {
-                            name: "password",
-                            type: "password",
-                            value: vnode.state["password"],
-                            oninput: (e) => {
-                                vnode.state["password"] = e.target.value;
-                            },
-                        }),
-                    ]
-                ),
-                m(
-                    ".form-group",
+                [
                     m(
-                        "button.login-button.primary",
-                        {
-                            type: "submit",
-                            onclick: (e) => {
-                                e.target.disabled = true;
-                                store
-                                    .logIn(vnode.state["username"], vnode.state["password"])
-                                    .then(() => {
-                                        location.reload();
-                                    })
-                                    .catch((err) => {
-                                        notifications.push("error", err.response || err.message);
-                                        e.target.disabled = false;
-                                    });
-                                return false;
-                            },
-                        },
-                        "Login",
+                        ".form-group",
+                        [
+                            m("label", { for: "username" }, "Usuário:"),
+                            m("input", {
+                                name: "username",
+                                type: "text",
+                                value: vnode.state["username"],
+                                oncreate: (vnode2) => {
+                                    (vnode2.dom as HTMLInputElement).focus();
+                                },
+                                oninput: (e) => {
+                                    vnode.state["username"] = e.target.value;
+                                },
+                            }),
+                        ]
                     ),
-                ),
+                    m(
+                        ".form-group",
+                        [
+                            m("label", { for: "password" }, "Senha:"),
+                            m("input", {
+                                name: "password",
+                                type: "password",
+                                value: vnode.state["password"],
+                                oninput: (e) => {
+                                    vnode.state["password"] = e.target.value;
+                                },
+                            }),
+                        ]
+                    ),
+                    m(
+                        ".button-container",
+                        m(
+                            "button.login-button.primary",
+                            {
+                                type: "submit",
+                                onclick: (e) => {
+                                    e.target.disabled = true;
+                                    store
+                                        .logIn(vnode.state["username"], vnode.state["password"])
+                                        .then(() => {
+                                            location.reload();
+                                        })
+                                        .catch((err) => {
+                                            notifications.push("error", err.response || err.message);
+                                            e.target.disabled = false;
+                                        });
+                                    return false;
+                                },
+                            },
+                            "Entrar",
+                        ),
+                    ),
+                ]
             ),
             m(
-                "a.login-footer",
-                {
-                    onclick: () => {
-                        const cb = (): Children => {
-                            const attrs = {
-                                onPasswordChange: () => {
-                                    overlay.close(cb);
-                                    m.redraw();
-                                },
+                ".footer-container", // Nova div container para o footer
+                m(
+                    "a.login-footer",
+                    {
+                        onclick: () => {
+                            const cb = (): Children => {
+                                const attrs = {
+                                    onPasswordChange: () => {
+                                        overlay.close(cb);
+                                        m.redraw();
+                                    },
+                                };
+                                return m(changePasswordComponent, attrs);
                             };
-                            return m(changePasswordComponent, attrs);
-                        };
-                        overlay.open(cb);
+                            overlay.open(cb);
+                        },
                     },
-                },
-                "Esqueci minha senha",
+                    "Esqueceu sua senha?",
+                ),
             ),
         ]),
-    ];
+        ];
     },
   };
 };

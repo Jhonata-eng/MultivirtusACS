@@ -5,11 +5,11 @@
   --base-font-size: 13px;
   --base-line-height: 16px;
 
-  --color1: #ebe0bf;
-  --color2: #b9b098;
-  --color3: #f2ebd5;
-  --color4: #046380;
-  --color5: #002f2f;
+  --color1: #cdd3db;
+  --color2: #606d80;
+  --color3: #dce0e6;
+  --color4: #2b4c7e;
+  --color5: #1f1f20;
 
   --fade: 0.2s;
 
@@ -42,8 +42,8 @@ a {
     color: var(--color4);
   }
   &:hover {
-    color: white;
-    background-color: var(--color4);
+    color: var(--color4);
+  /*  background-color: var(--color4); */
   }
   /* text-decoration does not propagate to inline-block children */
   & span {
@@ -84,7 +84,7 @@ body {
 }
 
 #header {
-  background-color: #f2eddf;
+  background-color: #afb9c5;
   border-bottom: 1px solid var(--color1);
   overflow: visible;
   position: relative;
@@ -257,7 +257,7 @@ body {
         transition: background-color var(--fade);
         &.active,
         &:hover {
-          background-color: white;
+          background-color: #f5f5f5;
         }
 
         & > a,
@@ -864,35 +864,48 @@ th {
   box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
 }
 
-.page-login .login-button {
-  width: 60%;
-  padding: 12px;
-  background-color: #4a90e2;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-align: center;
+/* Estilos para o container do footer */
+.footer-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
 }
 
-.page-login .login-button:hover {
-  background-color: #3a7bc8;
+.login-footer {
+    color: #4a90e2;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
 }
 
-.page-login .login-footer {
-  margin-top: 20px;
-  font-size: 14px;
-  color: #666;
+.login-footer:hover {
+    color: #3a7bc8;
+    text-decoration: underline;
 }
 
-.page-login .login-footer a {
-  color: #4a90e2;
-  text-decoration: none;
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
 }
 
-.page-login .login-footer a:hover {
-  text-decoration: underline;
+.login-button {
+    width: 130px;
+    padding: 12px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #3a7bc8;
 }
