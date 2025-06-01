@@ -80,6 +80,7 @@ body {
   display: flex;
   overflow-x: auto;
   overflow-y: auto;
+  background-color: #f5f5f5;
 }
 
 #header {
@@ -810,9 +811,34 @@ th {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #f5f5f5;
   padding: 20px;
   box-sizing: border-box;
+}
+
+.page-login .login-box {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.page-login .login-header {
+  margin-bottom: 1px;
+}
+
+.page-login .login-header h1 {
+  color: #333;
+  margin: 0;
+  font-size: 24px;
+}
+
+.page-login .form-group {
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: left;
 }
 
 .page-login label {
@@ -836,4 +862,37 @@ th {
   border-color: #4a90e2;
   outline: none;
   box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.page-login .login-button {
+  width: 60%;
+  padding: 12px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.page-login .login-button:hover {
+  background-color: #3a7bc8;
+}
+
+.page-login .login-footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.page-login .login-footer a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+.page-login .login-footer a:hover {
+  text-decoration: underline;
 }
