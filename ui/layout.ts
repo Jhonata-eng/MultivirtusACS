@@ -46,10 +46,13 @@ const component: ClosureComponent = (): Component => {
         ]),
         m(
           "#content-wrapper",
-          sideMenu,
-          m("#content", { class: `page-${vnode.attrs["page"]}` }, [
-            vnode.children,
-          ]),
+          [
+            vnode.attrs["page"] !== "login" && m("#sidebar", sideMenu),
+            m("#content", { class: `page-${vnode.attrs["page"]}` }, [
+              vnode.children,
+            ]),
+            vnode.attrs["page"] !== "login" && m("#footer", "2024 - 2025 Multivirtus Soluções Em Nuvem LTDA"),
+          ]
         ),
         overlay.render(),
         m(datalist),
